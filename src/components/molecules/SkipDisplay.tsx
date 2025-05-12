@@ -1,20 +1,24 @@
 import type React from "react";
-import type { MeasurementUnit, Skip } from "../../types";
+import type { EnrichedSkip, MeasurementUnit } from "../../types";
 import InformationTooltip from "../atoms/InformationTooltip";
 import SkipInfoTable from "./SkipInfoTable";
 import { Badge } from "antd";
-import { skipDimensions } from "../../constant";
 import WarningTag from "../atoms/WarningTag";
 import DangerTag from "../atoms/DangerTag";
+import { useEffect } from "react";
 
 type Props = {
   unit: MeasurementUnit;
-  skip: Skip | null;
+  skip: EnrichedSkip | null;
 };
 
 const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
   if (!skip) return null;
   const imageUrl = `/4-yarder-skip.jpg`;
+
+  useEffect(() => {
+    console.log(skip, "skip");
+  }, [skip]);
 
   return (
     <>
@@ -69,16 +73,16 @@ const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
               </div>
               <div className="space-y-2">
                 <div className="hidden lg:block">
-                  <SkipInfoTable size={skip.size} />
+                  <SkipInfoTable skip={skip} />
                 </div>
                 <div>
                   <p className="text-xs sm:text-lg font-semibold text-gray-700">
                     Product Dimensions:
                   </p>
                   <p className="text-xs sm:text-lg text-gray-600">
-                    (L){skipDimensions[skip.size].length[unit]} x (W)
-                    {skipDimensions[skip.size].width[unit]} x (H)
-                    {skipDimensions[skip.size].height[unit]}
+                    (L){skip.dimensions.length[unit]} x (W)
+                    {skip.dimensions.width[unit]} x (H)
+                    {skip.dimensions.height[unit]}
                   </p>
                 </div>
               </div>

@@ -3,16 +3,18 @@ import { Tabs, Badge, Spin, Segmented } from "antd";
 import { FaThumbsUp } from "react-icons/fa6";
 import { fetchSkips } from "../../api/skipServices";
 import type { TabsProps } from "antd";
-import type { Skip } from "../../types";
+import type { EnrichedSkip } from "../../types";
 import SkipDisplay from "../molecules/SkipDisplay";
 
 type Props = {
-  onSelect: (skip: Skip | null) => void;
+  onSelect: (skip: EnrichedSkip | null) => void;
 };
 
 const SkipTabs: React.FC<Props> = ({ onSelect }) => {
-  const [skips, setSkips] = useState<Skip[]>([]);
-  const [selectedSkipData, setSelectedSkipData] = useState<Skip | null>(null);
+  const [skips, setSkips] = useState<EnrichedSkip[]>([]);
+  const [selectedSkipData, setSelectedSkipData] = useState<EnrichedSkip | null>(
+    null
+  );
   const [loading, setLoading] = useState<boolean>(true);
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
 
@@ -20,6 +22,7 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
     const fetchData = async () => {
       try {
         const result = await fetchSkips();
+        console.log(result[0], ">>>");
         setSkips(result);
         setSelectedSkipData(result[0]);
         onSelect(result[0]);

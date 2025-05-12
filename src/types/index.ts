@@ -1,3 +1,5 @@
+import type { skipDimensions } from "../data";
+
 export type DangerTagKey = "allows_heavy_waste";
 export type WarningTagKey = "allowed_on_road";
 
@@ -19,3 +21,8 @@ export type Skip = {
 };
 
 export type MeasurementUnit = "metric" | "imperial";
+export type EnrichedSkip = Skip & {
+  description: string;
+  recommendations: string[];
+  dimensions: (typeof skipDimensions)[number];
+};

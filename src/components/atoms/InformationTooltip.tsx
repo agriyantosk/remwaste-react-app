@@ -1,18 +1,17 @@
 import React from "react";
 import { Tooltip } from "antd";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import type { Skip } from "../../types";
-import { skipRecommendations } from "../../constant";
+import type { EnrichedSkip } from "../../types";
 
 type Props = {
   size: {
     height: string;
     width: string;
   };
-  content: Skip;
+  skip: EnrichedSkip;
 };
 
-const InformationTooltip: React.FC<Props> = ({ size, content }) => {
+const InformationTooltip: React.FC<Props> = ({ size, skip }) => {
   return (
     <Tooltip
       placement="right"
@@ -21,7 +20,7 @@ const InformationTooltip: React.FC<Props> = ({ size, content }) => {
         <div className="max-w-xs">
           <h4 className="font-semibold mb-1">Ideal for...</h4>
           <ul className="list-disc list-inside space-y-1 text-sm">
-            {skipRecommendations[content.size]?.map((item, index) => (
+            {skip.recommendations?.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>

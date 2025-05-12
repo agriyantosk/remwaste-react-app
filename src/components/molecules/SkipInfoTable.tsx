@@ -1,27 +1,24 @@
 import React from "react";
-import { skipDescriptions, skipRecommendations } from "../../constant";
+import type { EnrichedSkip } from "../../types";
 
 type Props = {
-  size: number;
+  skip: EnrichedSkip | null;
 };
 
-const SkipInfoTable: React.FC<Props> = ({ size }) => {
-  const description = skipDescriptions[size];
-  const recommendations = skipRecommendations[size];
-
+const SkipInfoTable: React.FC<Props> = ({ skip }) => {
   return (
     <div className="text-sm space-y-2">
       {/* Description Row */}
       <div>
         <h4 className="font-semibold mb-1 text-xs sm:text-lg">Description:</h4>
-        <p className="text-gray-700 text-xs sm:text-lg">{description}</p>
+        <p className="text-gray-700 text-xs sm:text-lg">{skip?.description}</p>
       </div>
 
       {/* Recommendations Row */}
       <div>
         <h4 className="font-semibold mb-1 text-xs sm:text-lg">Ideal for...</h4>
         <ul className="list-disc list-inside space-y-1 text-gray-700 text-xs sm:text-lg">
-          {recommendations.map((item, i) => (
+          {skip?.recommendations.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
