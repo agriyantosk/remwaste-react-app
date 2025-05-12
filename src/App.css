@@ -3,12 +3,31 @@
   --breakpoint-xs: 22.5rem; /* 375px */
 }
 
+@theme {
+  --color-primary: #0037C1;           /* Blue */
+  --color-primary-light: #E5E7EB;     /* Light gray */
+  --color-primary-dark: #2A2A2A;      /* Dark gray */
+
+  --color-secondary-yellow: #EAB308;  /* Yellow */
+  --color-secondary-red: #EF4444;     /* Red */
+  --color-secondary-light: #9CA3AF;   /* Mid-gray */
+  --color-secondary-dark: #121212;    /* Dark gray (near-black) */
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-800: #1C1C1C;          /* Gray */
+}
+
 .ant-tabs-nav {
   margin: 0 !important;
 }
 
 .ant-tooltip-inner {
   font-size: 12px !important;
+}
+
+#root {
+  background: #121212;
 }
 /* #root {
   max-width: 1280px;
