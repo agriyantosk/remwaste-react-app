@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Tabs, Badge, Spin, Segmented } from "antd";
-import { FaThumbsUp } from "react-icons/fa6";
+import { Tabs, Spin, Segmented } from "antd";
 import { fetchSkips } from "../../api/skipServices";
 import type { TabsProps } from "antd";
 import type { EnrichedSkip } from "../../types";
@@ -51,21 +50,14 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
 
     return {
       key: String(skip.id),
-      label:
-        skip.size === 4 ? (
-          <Badge count={<FaThumbsUp className="text-red-500" />}>
-            {tabContent}
-          </Badge>
-        ) : (
-          tabContent
-        ),
+      label: tabContent,
     };
   });
 
   if (loading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <Spin size="large" tip="Loading skip options..." />
+        <Spin size="large" />
       </div>
     );
   }

@@ -63,7 +63,7 @@ const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
                   <div className="lg:hidden">
                     <InformationTooltip
                       size={{ height: "0.75em", width: "0.75em" }}
-                      content={skip}
+                      skip={skip}
                     />
                   </div>
                 </div>
