@@ -1,3 +1,6 @@
+export type DangerTagKey = "allows_heavy_waste";
+export type WarningTagKey = "allowed_on_road";
+
 export type Skip = {
   id: number;
   size: number;
