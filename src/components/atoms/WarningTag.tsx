@@ -17,10 +17,10 @@ const WarningTag: React.FC<Props> = ({ data }) => {
 
         return (
           <Tag
-            style={{ opacity: "85%" }}
+            style={{ opacity: "75%" }}
             key={key}
             icon={<ExclamationCircleOutlined />}
-            color="warning"
+            color="#EAB308"
           >
             {label}
           </Tag>

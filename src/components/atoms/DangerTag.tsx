@@ -20,7 +20,7 @@ const DangerTag: React.FC<Props> = ({ data }) => {
             style={{ opacity: "85%" }}
             key={key}
             icon={<ExclamationCircleOutlined />}
-            color="error"
+            color="#EF4444"
           >
             {label}
           </Tag>

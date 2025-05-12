@@ -14,9 +14,16 @@ type Props = {
 
 const InformationTooltip: React.FC<Props> = ({ size, content, placement }) => {
   return (
-    <Tooltip placement={placement} trigger="hover" title={content}>
+    <Tooltip
+      placement={placement}
+      trigger="hover"
+      title={content}
+      color="#E5E7EB"
+      style={{ opacity: "80%" }}
+    >
       <span>
         <AiOutlineInfoCircle
+          className="text-primary-gray"
           style={{ height: size.height, width: size.width }}
         />
       </span>

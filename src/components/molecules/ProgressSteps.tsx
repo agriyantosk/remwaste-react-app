@@ -56,7 +56,7 @@ const ProgressSteps: React.FC = () => {
             icon: step.icon,
           }))}
         />
-        <div className="text-center text-xs sm:text-lg font-medium text-gray-800">
+        <div className="text-center text-xs sm:text-lg font-medium text-white">
           {steps[currentStep].title}
         </div>
       </div>

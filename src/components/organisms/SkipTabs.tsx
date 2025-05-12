@@ -46,7 +46,7 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
 
   const items: TabsProps["items"] = skips.map((skip) => {
     const tabContent = (
-      <div className="flex flex-col items-center min-w-[60px] text-center">
+      <div className="flex flex-col items-center min-w-[60px] text-center text-primary-dark">
         <span>{`${skip.size} Yard`}</span>
       </div>
     );
@@ -83,8 +83,7 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
             value={unit}
             onChange={(val) => setUnit(val as "metric" | "imperial")}
           />
-          <div className="flex">
-            <ARButton />
+          <div className="flex gap-1">
             {isMobile() && (
               <InformationTooltip
                 size={{ height: "0.75em", width: "0.75em" }}
@@ -96,13 +95,14 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
                       alt="AR Help"
                       className="w-16 h-auto rounded shadow bg-white"
                     />
-                    <p>
+                    <p className="text-primary-dark">
                       Press the top-right icon on the next page to start AR.
                     </p>
                   </div>
                 }
               />
             )}
+            <ARButton />
           </div>
         </div>
         <SkipDisplay unit={unit} skip={selectedSkipData} />

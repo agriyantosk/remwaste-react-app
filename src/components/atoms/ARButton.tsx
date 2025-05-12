@@ -11,7 +11,7 @@ const ARButton: React.FC = () => {
 
   if (!isMobile() || os === "unknown") {
     return (
-      <p className="text-sm text-gray-500 italic flex items-center">
+      <p className="text-sm text-secondary-red opacity-60 italic flex items-center">
         AR viewer is only available on mobile devices.
       </p>
     );
@@ -23,7 +23,7 @@ const ARButton: React.FC = () => {
         <a
           rel="ar"
           href="/ar/skip.usdz"
-          className="bg-blue-600 text-white px-4 py-2 rounded-md flex items-center text-sm shadow-md inline-block"
+          className="bg-primary text-white px-4 py-2 rounded-md flex items-center text-sm shadow-md inline-block"
           target="_blank"
         >
           View in AR
@@ -35,7 +35,7 @@ const ARButton: React.FC = () => {
   return (
     <button
       onClick={handleARClick}
-      className="bg-blue-600 text-white px-4 py-2 flex items-center rounded-md text-sm shadow-md"
+      className="bg-primary text-white px-4 py-2 flex items-center rounded-md text-sm shadow-md"
     >
       View in AR
     </button>
