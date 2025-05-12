@@ -13,10 +13,15 @@ const DangerTag: React.FC<Props> = ({ data }) => {
     <>
       {Object.entries(dangerTagMap).map(([key, label]) => {
         const value = data[key as DangerTagKey];
-        if (value === undefined || value === true) return null;
+        if (value === undefined || value === false) return null;
 
         return (
-          <Tag key={key} icon={<ExclamationCircleOutlined />} color="error">
+          <Tag
+            style={{ opacity: "85%" }}
+            key={key}
+            icon={<ExclamationCircleOutlined />}
+            color="error"
+          >
             {label}
           </Tag>
         );
