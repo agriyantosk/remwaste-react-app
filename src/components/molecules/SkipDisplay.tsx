@@ -47,18 +47,18 @@ const SkipDisplay: React.FC<Props> = ({ skip }) => {
                 {skip.hire_period_days} day hire period
               </p>
             </div>
-            <div className="hidden lg:block">
-              <SkipInfoTable size={skip.size} />
-            </div>
-            <div>
-              <p className="text-xs sm:text-lg font-semibold text-gray-700">
-                Product Dimensions:
-              </p>
-              <p className="text-xs sm:text-lg text-gray-600">
-                ← 7 ft — 5 m ⇵ 3 ft
-              </p>
-              {/* <p className="text-sm font-semibold text-gray-700">Recommended use</p>
-          <p className="text-sm text-gray-600">Garden waste, soil, branches</p> */}
+            <div className="space-y-2">
+              <div className="hidden lg:block">
+                <SkipInfoTable size={skip.size} />
+              </div>
+              <div>
+                <p className="text-xs sm:text-lg font-semibold text-gray-700">
+                  Product Dimensions:
+                </p>
+                <p className="text-xs sm:text-lg text-gray-600">
+                  ← 7 ft — 5 m ⇵ 3 ft
+                </p>
+              </div>
             </div>
           </div>
         </div>

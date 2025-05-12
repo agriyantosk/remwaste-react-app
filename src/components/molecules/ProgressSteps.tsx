@@ -32,34 +32,32 @@ const ProgressSteps: React.FC = () => {
   return (
     <>
       {/* Desktop */}
-      <div className="mx-auto">
-        <div className="hidden lg:block">
-          <Steps
-            size="small"
-            current={currentStep}
-            direction="horizontal"
-            responsive={false}
-            items={steps.map((step) => ({
-              title: step.title,
-              icon: step.icon,
-            }))}
-          />
-        </div>
+      <div className="hidden md:block md:w-[90%] mx-auto">
+        <Steps
+          size="small"
+          current={currentStep}
+          direction="horizontal"
+          responsive={false}
+          items={steps.map((step) => ({
+            title: step.title,
+            icon: step.icon,
+          }))}
+        />
+      </div>
 
-        {/* Mobile */}
-        <div className="lg:hidden px-2">
-          <Steps
-            size="small"
-            current={currentStep}
-            direction="horizontal"
-            responsive={false}
-            items={mobileSteps.map((step) => ({
-              icon: step.icon,
-            }))}
-          />
-          <div className="text-center text-xs sm:text-lg font-medium text-gray-800">
-            {steps[currentStep].title}
-          </div>
+      {/* Mobile */}
+      <div className="md:hidden px-4">
+        <Steps
+          size="small"
+          current={currentStep}
+          direction="horizontal"
+          responsive={false}
+          items={mobileSteps.map((step) => ({
+            icon: step.icon,
+          }))}
+        />
+        <div className="text-center text-xs sm:text-lg font-medium text-gray-800">
+          {steps[currentStep].title}
         </div>
       </div>
     </>
