@@ -6,44 +6,64 @@ import { FaTruck } from "react-icons/fa6";
 import { FaShield } from "react-icons/fa6";
 import { FaRegCalendar } from "react-icons/fa6";
 import { FaRegCreditCard } from "react-icons/fa6";
+import { TbLineDotted } from "react-icons/tb";
 
-const ProgressSteps: React.FC = () => (
-  <Steps
-    size="small"
-    current={1}
-    items={[
-      {
-        title: "Postcode",
-        status: "finish",
-        icon: <FaLocationDot />,
-      },
-      {
-        title: "Waste Type",
-        status: "finish",
-        icon: <FaTrash />,
-      },
-      {
-        title: "Select Skip",
-        status: "finish",
-        icon: <FaTruck />,
-      },
-      {
-        title: "Permit Check",
-        status: "finish",
-        icon: <FaShield />,
-      },
-      {
-        title: "Choose Date",
-        status: "finish",
-        icon: <FaRegCalendar />,
-      },
-      {
-        title: "Payment",
-        status: "finish",
-        icon: <FaRegCreditCard />,
-      },
-    ]}
-  />
-);
+const ProgressSteps: React.FC = () => {
+  const currentStep = 2;
+  const steps = [
+    { title: "Postcode", icon: <FaLocationDot /> },
+    { title: "Waste Type", icon: <FaTrash /> },
+    { title: "Select Skip", icon: <FaTruck /> },
+    { title: "Permit Check", icon: <FaShield /> },
+    { title: "Choose Date", icon: <FaRegCalendar /> },
+    { title: "Payment", icon: <FaRegCreditCard /> },
+  ];
+
+  const mobileUnseenSteps = { title: "", icon: <TbLineDotted /> };
+
+  const mobileSteps = [
+    steps[0],
+    mobileUnseenSteps,
+    steps[currentStep],
+    mobileUnseenSteps,
+    steps[steps.length - 1],
+  ];
+
+  return (
+    <>
+      {/* Desktop */}
+      <div className="mx-auto">
+        <div className="hidden lg:block">
+          <Steps
+            size="small"
+            current={currentStep}
+            direction="horizontal"
+            responsive={false}
+            items={steps.map((step) => ({
+              title: step.title,
+              icon: step.icon,
+            }))}
+          />
+        </div>
+
+        {/* Mobile */}
+        <div className="lg:hidden px-2">
+          <Steps
+            size="small"
+            current={currentStep}
+            direction="horizontal"
+            responsive={false}
+            items={mobileSteps.map((step) => ({
+              icon: step.icon,
+            }))}
+          />
+          <div className="text-center text-xs sm:text-lg font-medium text-gray-800">
+            {steps[currentStep].title}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default ProgressSteps;

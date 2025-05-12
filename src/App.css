@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @theme {
   --breakpoint-xs: 22.5rem; /* 375px */
-  /* --breakpoint-xsm: 25.875rem; 41px */
 }
 
 .ant-tabs-nav {

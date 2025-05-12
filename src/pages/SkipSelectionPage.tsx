@@ -9,9 +9,9 @@ const SkipSelectionPage = () => {
 
   return (
     <>
-      <div className="h-screen">
-        <div>
-          <ProgressSteps />
+      <div className="min-h-screen flex flex-col pt-4">
+        <ProgressSteps />
+        <div className="flex-grow flex flex-col">
           <SkipTabs onSelect={setSelectedSkip} />
           <SelectedSkipFooter skip={selectedSkip} />
         </div>

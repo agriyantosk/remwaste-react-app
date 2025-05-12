@@ -1,11 +1,9 @@
-// import React, { useState } from "react";
-// import type { RadioChangeEvent } from "antd";
-import { Tabs, Badge } from "antd";
-import type { TabsProps } from "antd";
-import InformationTooltip from "../atoms/InformationTooltip";
-import SkipDisplay from "../molecules/SkipDisplay";
 import React, { useState } from "react";
+import type { TabsProps } from "antd";
 import type { Skip } from "../../types";
+import { Tabs, Badge } from "antd";
+import { FaThumbsUp } from "react-icons/fa6";
+import SkipDisplay from "../molecules/SkipDisplay";
 
 type Props = {
   onSelect: (skip: Skip | null) => void;
@@ -169,21 +167,25 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
     setSelectedSkipData(selected ?? null);
   };
 
-  const items: TabsProps["items"] = data.map((skip, i) => ({
-    key: String(skip.id),
-    label: (
-      <div className="flex flex-col items-center">
-        {i === 0 ? (
-          <Badge.Ribbon text="Recommended">
-            <span>{skip.size} Yard</span>
-          </Badge.Ribbon>
-        ) : (
-          <span>{skip.size} Yard</span>
-        )}
+  const items: TabsProps["items"] = data.map((skip) => {
+    const tabContent = (
+      <div className="flex flex-col items-center min-w-[60px] text-center">
+        <span>{`${skip.size} Yard`}</span>
       </div>
-    ),
-    children: <SkipDisplay skip={selectedSkipData} />,
-  }));
+    );
+
+    return {
+      key: String(skip.id),
+      label:
+        skip.size === 4 ? (
+          <Badge count={<FaThumbsUp className="text-red-500" size={"small"} />}>
+            {tabContent}
+          </Badge>
+        ) : (
+          tabContent
+        ),
+    };
+  });
 
   return (
     <>
@@ -192,9 +194,9 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
         defaultActiveKey={String(data[0].id)}
         tabPosition="top"
         items={items}
-        style={{ maxWidth: "100%" }}
+        centered={true}
       />
-      <InformationTooltip />
+      <SkipDisplay skip={selectedSkipData} />
     </>
   );
 };
