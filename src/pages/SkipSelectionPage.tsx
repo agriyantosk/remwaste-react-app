@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ProgressSteps from "../components/molecules/ProgressSteps";
-import SelectedSkipFooter from "../components/organisms/SkipSelectedFooter";
-import SkipTabs from "../components/organisms/SkipTabs";
 import type { Skip } from "../types";
+import ProgressSteps from "../components/molecules/ProgressSteps";
+import SkipTabs from "../components/organisms/SkipTabs";
+import SelectedSkipFooter from "../components/organisms/SkipSelectedFooter";
 
 const SkipSelectionPage = () => {
   const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);

@@ -19,14 +19,17 @@ const SelectedSkipFooter: React.FC<Props> = ({ skip }) => {
         <p className="text-sm md:text-2xl font-medium text-gray-700 flex flex-grow items-center">
           Price: {skip ? `£${skip.price_before_vat}` : "-"}
         </p>
+        <p className="text-[8px]">(Price exclude VAT)</p>
       </div>
-      <PrimaryButton
-        style={
-          "bg-blue-400 text-sm md:text-2xl text-white px-3 py-1.5 md:px-18 md:py-2.5 rounded-2xl items-center h-max"
-        }
-        onClick={handleClick}
-        label="Continue"
-      />
+      <div>
+        <PrimaryButton
+          style={
+            "bg-blue-400 text-sm md:text-2xl text-white px-3 py-1.5 md:px-18 md:py-2.5 rounded-2xl items-center h-max"
+          }
+          onClick={handleClick}
+          label="Continue"
+        />
+      </div>
     </div>
   );
 };
