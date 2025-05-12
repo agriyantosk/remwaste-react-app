@@ -62,8 +62,18 @@ const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
                   </h2>{" "}
                   <div className="lg:hidden">
                     <InformationTooltip
+                      placement="right"
                       size={{ height: "0.75em", width: "0.75em" }}
-                      skip={skip}
+                      content={
+                        <div className="max-w-xs">
+                          <h4 className="font-semibold mb-1">Ideal for...</h4>
+                          <ul className="list-disc list-inside space-y-1 text-sm">
+                            {skip.recommendations?.map((item, index) => (
+                              <li key={index}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      }
                     />
                   </div>
                 </div>
