@@ -134,3 +134,9 @@ export const skipDimensions: Record<
     height: { imperial: "8'10\"", metric: "2.69m" },
   },
 };
+
+export const skipImages: string[] = [
+  "/skip-2.png",
+  "/skip-3.png",
+  "/skip-blueprint.png",
+];
