@@ -242,7 +242,6 @@ The following colors were extracted directly from the existing REM Waste website
 - TypeScript
 - Tailwind CSS
 - Ant Design (modals, carousel)
-- `@google/model-viewer` for Android AR
 - QuickLook for iOS AR
 
 ### Environment Variables
