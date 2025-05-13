@@ -248,6 +248,28 @@ The following colors were extracted directly from the existing REM Waste website
 - `@google/model-viewer` for Android AR
 - QuickLook for iOS AR
 
+### Environment Variables
+
+To run the project locally, environment variables must be configured in a .env file.
+
+A .env.sample file is provided to serve as a reference. Follow the steps below to get started:
+
+#### Steps
+
+1. Copy the .env.sample file and rename it to .env:
+
+```bash
+cp .env.sample .env
+```
+
+2. Update the values as needed (if you’re using a different API endpoint, for example).
+
+   Notes:
+
+   • Vite requires all environment variables to be prefixed with VITE\_.
+
+   • Be sure to restart your dev server after making any changes to .env.
+
 ### Technical Approach
 
 As the instruction mentioned — "Focus on clean, maintainable React code, responsiveness, and UI/UX improvements" — I’ve taken a very intentional approach in structuring and writing this project:
@@ -274,7 +296,7 @@ src/
 ├── utils/                // Utility/helper functions (e.g. isMobile, OS detection)
 ```
 
-## How to Run
+## How to Run Locally
 
 ```bash
 git clone https://github.com/yourname/remwaste-redesign.git
