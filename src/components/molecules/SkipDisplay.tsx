@@ -2,9 +2,10 @@ import type React from "react";
 import type { EnrichedSkip, MeasurementUnit } from "../../types";
 import InformationTooltip from "../atoms/InformationTooltip";
 import SkipInfoTable from "./SkipInfoTable";
-import { Badge, Carousel, Image } from "antd";
+import { Badge } from "antd";
 import WarningTag from "../atoms/WarningTag";
 import DangerTag from "../atoms/DangerTag";
+import SkipCarousel from "./SkipCarousel";
 
 type Props = {
   unit: MeasurementUnit;
@@ -19,21 +20,7 @@ const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
       <div className="flex flex-grow flex-col lg:flex-row flex-grow justify-start border border-gray my-4">
         <div className="w-full lg:w-[55%] relative flex justify-center items-center">
           <div className="w-full h-full items-center justify-center">
-            <Carousel dots arrows infinite={false} className="w-full h-full">
-              {skip.imgs.map((src, idx) => (
-                <div key={idx} className="w-full h-full">
-                  <Image
-                    src={src}
-                    alt={`Skip ${skip.size} Yard ${idx + 1}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                    }}
-                  />
-                </div>
-              ))}
-            </Carousel>
+            <SkipCarousel skip={skip} />
           </div>
 
           {(!skip.allowed_on_road || !skip.allows_heavy_waste) && (
