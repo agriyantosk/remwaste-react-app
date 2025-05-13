@@ -5,7 +5,6 @@ import SkipInfoTable from "./SkipInfoTable";
 import { Badge } from "antd";
 import WarningTag from "../atoms/WarningTag";
 import DangerTag from "../atoms/DangerTag";
-import { useEffect } from "react";
 
 type Props = {
   unit: MeasurementUnit;
@@ -15,10 +14,6 @@ type Props = {
 const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
   if (!skip) return null;
   const imageUrl = `/4-yarder-skip.jpg`;
-
-  useEffect(() => {
-    console.log(skip, "skip");
-  }, [skip]);
 
   return (
     <>
@@ -30,12 +25,12 @@ const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
             className="object-cover"
           />
 
-          {(skip.allowed_on_road || skip.allows_heavy_waste) && (
+          {(!skip.allowed_on_road || !skip.allows_heavy_waste) && (
             <div className="absolute bottom-2 left-2 flex flex-col gap-1">
-              {skip.allowed_on_road && (
+              {!skip.allowed_on_road && (
                 <WarningTag data={{ allowed_on_road: skip.allowed_on_road }} />
               )}
-              {skip.allows_heavy_waste && (
+              {!skip.allows_heavy_waste && (
                 <DangerTag
                   data={{ allows_heavy_waste: skip.allows_heavy_waste }}
                 />

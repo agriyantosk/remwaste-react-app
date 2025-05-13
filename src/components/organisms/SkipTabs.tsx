@@ -24,7 +24,6 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
     const fetchData = async () => {
       try {
         const result = await fetchSkips();
-        console.log(result[0], ">>>");
         setSkips(result);
         setSelectedSkipData(result[0]);
         onSelect(result[0]);
