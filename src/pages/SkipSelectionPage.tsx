@@ -1,11 +1,15 @@
-import { useState } from "react";
-import type { Skip } from "../types";
+import { useEffect, useState } from "react";
+import type { EnrichedSkip } from "../types";
 import ProgressSteps from "../components/molecules/ProgressSteps";
 import SkipTabs from "../components/organisms/SkipTabs";
 import SelectedSkipFooter from "../components/organisms/SkipSelectedFooter";
 
 const SkipSelectionPage = () => {
-  const [selectedSkip, setSelectedSkip] = useState<Skip | null>(null);
+  const [selectedSkip, setSelectedSkip] = useState<EnrichedSkip | null>(null);
+
+  useEffect(() => {
+    document.title = "REM Waste | Select Your Skip";
+  }, []);
 
   return (
     <>

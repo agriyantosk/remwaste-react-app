@@ -1,4 +1,4 @@
-import { Carousel, Image } from "antd";
+import { Carousel } from "antd";
 import type { Skip } from "../../types";
 import type React from "react";
 
@@ -6,7 +6,7 @@ type Props = {
   skip: Skip;
 };
 
-const SkipCarousel: React.FC<Props> = ({ skip }) => {
+const SkipCarousel: React.FC<Props> = () => {
   const contentStyle: React.CSSProperties = {
     margin: 0,
     height: "160px",
@@ -14,7 +14,6 @@ const SkipCarousel: React.FC<Props> = ({ skip }) => {
     lineHeight: "160px",
     textAlign: "center",
   };
-  const imageUrl = `/4-yarder-skip.jpg`;
   return (
     <>
       <Carousel arrows infinite={false}>
