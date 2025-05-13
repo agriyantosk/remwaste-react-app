@@ -307,6 +307,6 @@ npm run dev
 
 ## Links
 
-- **Live Deployment**: [_Deployment Link_](https://remwaste-react-694ydmdri-agriyantosks-projects.vercel.app/)
+- **Live Deployment**: [_Deployment Link_](https://remwaste-react-eb8eiaz7s-agriyantosks-projects.vercel.app/)
 
 - **Sandbox Link**: [_Sandbox Link_](https://codesandbox.io/p/github/agriyantosk/remwaste-react-app/draft/condescending-noyce)
