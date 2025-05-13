@@ -188,17 +188,13 @@ To answer that, I experimented with AR to let users preview the skip size in the
 
 ### How It Works
 
-- A dedicated **"View in AR"** button is shown **only on mobile devices**.
-- Once clicked:
-  - iOS users are redirected to a `.usdz` file using Apple’s native Quick Look AR system.
-  - Android users are taken to a dedicated HTML page rendering a `.glb` model via [Model Viewer](https://modelviewer.dev) with support for Scene Viewer.
-- The AR viewer runs in a **new browser tab** so it doesn't interrupt the main selection or checkout process.
+- A dedicated **"View in AR"** button is shown **only on iOS mobile devices**.
+- Once clicked: iOS users are redirected to a `.usdz` file using Apple’s native Quick Look AR system.
 
 ---
 
 ### Tech Stack & Tools Used
 
-- `@google/model-viewer` (for Android AR support)
 - Apple Quick Look with `.usdz` format (for iOS support)
 - Device and OS detection via `navigator.userAgent`
 - 3D models downloaded and scaled appropriately using SketchUp and online converters
@@ -208,6 +204,7 @@ To answer that, I experimented with AR to let users preview the skip size in the
 ### Known Limitations
 
 - Not all mobile devices support AR natively.
+- Currently, the AR feature only available on iOS mobile devices
 - 3D models are not **dynamically scaled** based on skip dimensions. This approach was taken purely to enhance the user experience, not to guarantee exact measurements.
 - As this was developed during a limited time frame, models are simplified and not yet tied to real-time data though this is feasible in future iterations.
 

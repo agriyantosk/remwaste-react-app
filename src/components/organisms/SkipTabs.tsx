@@ -6,7 +6,7 @@ import type { EnrichedSkip } from "../../types";
 import SkipDisplay from "../molecules/SkipDisplay";
 import ARButton from "../atoms/ARButton";
 import InformationTooltip from "../atoms/InformationTooltip";
-import { isMobile } from "../../utils";
+import { getDeviceOS, isMobile } from "../../utils";
 
 type Props = {
   onSelect: (skip: EnrichedSkip | null) => void;
@@ -64,6 +64,8 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
     );
   }
 
+  const os = getDeviceOS();
+
   return (
     <>
       <Tabs
@@ -83,7 +85,7 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
             onChange={(val) => setUnit(val as "metric" | "imperial")}
           />
           <div className="flex gap-1">
-            {isMobile() && (
+            {isMobile() && os !== "android" && (
               <InformationTooltip
                 size={{ height: "0.75em", width: "0.75em" }}
                 placement="bottom"
