@@ -76,9 +76,9 @@ const SkipTabs: React.FC<Props> = ({ onSelect }) => {
         centered
       />
       <div className="w-[90%] mx-auto flex flex-grow h-[80%] flex-col py-4">
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-4">
           <Segmented
-            className="w-max"
+            className="w-max text-[8px]"
             shape="round"
             options={["metric", "imperial"]}
             value={unit}

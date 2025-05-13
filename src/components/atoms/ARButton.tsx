@@ -11,7 +11,7 @@ const ARButton: React.FC = () => {
 
   if (!isMobile() || os === "unknown" || os === "android") {
     return (
-      <p className="text-sm text-secondary-red opacity-60 italic flex items-center">
+      <p className="text-[10px] text-right md:text-sm text-secondary-red opacity-60 italic flex items-center">
         AR viewer is only available on iOS mobile devices.
       </p>
     );
