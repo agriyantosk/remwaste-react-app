@@ -1,28 +1,29 @@
-# REM Waste – Redesign Challenge
+# remwaste-react-app (REM Waste – Redesign Challenge)
 
 Before diving into visual changes or code, I decided to take a step back and understand the context around the task. What is the nature of the waste management industry? Where does REM Waste sit within that landscape? Who are the real people using this skip selection interface, and what do they expect when landing on this page?
 
 This README outlines the thinking behind my approach — combining user experience, technical clarity, and professional tone — to improve both the form and function of the skip selection experience.
 
-## 📦 Understanding the Industry and Where REM Waste Falls In
+## Understanding the Industry and Where REM Waste Falls In
 
 I started by learning about the waste management industry and turns out, it involves many steps and different people working together. In the waste management industry, I learn that there are typically multiple stages in the supply chain:
 
-1. Waste Generation – at homes, construction sites, or commercial operations
-2. Waste Collection – temporary storage or containerization of waste (e.g., skips)
-3. Transportation – moving collected waste to processing centers
-4. Sorting & Segregation – identifying recyclables, hazardous waste, etc.
-5. Treatment – processes like incineration or gasification 6. Disposal or Recycling – landfill or material recovery
+1. **Waste Generation** – at homes, construction sites, or commercial operations
+2. **Waste Collection** – temporary storage or containerization of waste (e.g., skips)
+3. **Transportation** – moving collected waste to processing centers
+4. **Sorting & Segregation** – identifying recyclables, hazardous waste, etc.
+5. **Treatment** – processes like incineration or gasification 6. Disposal or Recycling – landfill or material recovery
 
-Each of these stages can be handled by different entities and understanding where REM Waste fits in this system helped shape understand more who are their **target audience** and conduct a proper UX approach.
+Each of these stages can be handled by different entities and understanding where REM Waste fits in this system helped me better understand who their **target audience** is and conduct a proper UX approach.
 
 REM Waste functions as a digital logistics layer, coordinating skip delivery, pickup, and disposal by connecting customers with a wide network of skip providers. Their service focuses primarily on the **collection and transportation** stages which bridging the gap between those who produce waste and those who process it.
 
-### 🎯 Estimated Target Audience
+### Estimated Target Audience
 
 Based on what I’ve learned, I can estimate that REM Waste primarily serves professional users who need efficient skip logistics. The LinkedIn profile also mentions:
 
-“REM Waste operates in the Waste Management UK sector partnering with over 750 different organisations delivering and supporting companies from construction, engineering, demolition, insulation to domestic households.” — REM Waste LinkedIn
+_"REM Waste operates in the Waste Management UK sector partnering with over 750 different organisations delivering and supporting companies from construction, engineering, demolition, insulation to domestic households."_
+– REM Waste LinkedIn
 
 This indicates a **broad customer base**. From that, I can safely assume their main audience includes:
 
@@ -34,7 +35,7 @@ This indicates a **broad customer base**. From that, I can safely assume their m
 
 These users likely value ease, speed, clarity, and confidence when selecting the right skip for a job.
 
-## 🧭 Competitor Analysis
+## Competitor Analysis / Benchmarking
 
 To better understand what works (and what’s missing) in the industry, I some of the UK skip platforms such as AnyJunk and HIPPO. These were my findings:
 
@@ -65,18 +66,18 @@ To better understand what works (and what’s missing) in the industry, I some o
 
 With these references, I was able to establish a clear benchmark of what works well in the market. Both in terms of usability and the type of information customers expect during the skip selection process.
 
-## 🚧 REM Waste Skip Selection Page Problem Analysis
+## REM Waste Skip Selection Page Problem Analysis
 
 ![alt text](public/rem-waste-skip-page.png)
 
-### ✅ Strengths
+### Strengths
 
 - A wide range of skip options (more than competitors)
 - Clean, minimal flow (choose + continue)
 - Responsive layout across devices
 - Good progression tracking with steps indicator
 
-### ⚠️ Room for Improvement
+### Room for Improvement
 
 - No dimensions, usage hints, or visuals to help select quickly
 - Product mockups instead of real photos
@@ -85,7 +86,7 @@ With these references, I was able to establish a clear benchmark of what works w
 
 ---
 
-## 🎯 Redesign Goals
+## Redesign Goals
 
 I set the following goals to guide my implementation:
 
@@ -113,7 +114,7 @@ I set the following goals to guide my implementation:
 
    - I kept the same core colors and visual tone, avoiding jarring visual changes
 
-### 🧠 Mock Data Enrichment
+### Mock Data Enrichment
 
 Although the provided API contains essential skip data, I decided to enrich the user experience by enhancing this dataset with additional mock information. This is stored under `/src/data/index.ts` and injected after the initial fetch like this:
 
@@ -137,7 +138,7 @@ fetchSkips()
 
 2. **`skipDescriptions`**
 
-   - Plain English descriptions explaining capacity and ideal use cases, designed to match mental models like "30–40 bin bags" which I which I collected from REM Waste main website (https://remwaste.com).
+   - Plain English descriptions explaining capacity and ideal use cases, designed to match mental models like "30–40 bin bags" which I collected from REM Waste main website (https://remwaste.com).
 
 3. **`skipDimensions`**
 
@@ -149,7 +150,7 @@ fetchSkips()
 
 📌 While injecting static mock data after fetch isn’t ideal in a real-world environment (where such data should inside the database), this method is chosen to maintain separation and make testing easy during development.
 
-### 🧩 Introduced Features and Component Enhancements
+### Introduced Features and Component Enhancements
 
 #### 1. **Dynamic Unit Metrics**
 
@@ -159,25 +160,25 @@ Users can toggle between Metric and Imperial units when viewing skip dimensions.
 
 Lightweight tooltips show helpful “Ideal for...” suggestions tailored to each skip, improving user clarity and helping users choose more confidently.
 
-#### 3. **Confirmation Modal**
+#### 3. **VAT Pricing Note**
 
-Before progressing, users are shown a modal summarizing the skip details. This builds clarity and trust, ensuring users know what they’re committing to.
+The UI clearly states that the shown price excludes VAT. While the original REM Waste website calculates VAT at the final step of the checkout process, providing this information at the skip selection stage improves transparency and helps users set more accurate expectations upfront.
 
-#### 4. **VAT Pricing Note**
-
-The UI clearly states that the shown price excludes VAT. This builds transparency and sets proper expectations before final checkout.
-
-#### 5. **Interactive Image Carousel**
+#### 4. **Interactive Image Carousel**
 
 Each skip includes a carousel of images that users can swipe or click through. The carousel also supports image enlargement, offering a more interactive and informative product visualization.
 
+#### 5. **Confirmation Modal**
+
+Before progressing, users are shown a modal summarizing the skip details. This builds clarity and trust, ensuring users know what they’re committing to.
+
 These enhancements are all designed to support the core UX goals: **speed**, **clarity**, and **trust** which would help REM Waste's customers book the right skip quickly and confidently.
 
-## 🧪 Experimental Enhancement: AR Skip Preview
+## Experimental Enhancement: AR Skip Preview
 
 As a forward-thinking addition, I explored the possibility of integrating an Augmented Reality (AR) feature into the skip selection page. While this feature is entirely non-blocking and not required for completing the task, it demonstrates an initiative to bridge the gap between digital selection and physical understanding — especially helpful for less experienced users or domestic audiences.
 
-### 🎯 Why AR?
+### Why AR?
 
 One of the common challenges in skip hire is spatial understanding: “Will this skip actually fit on my driveway?” or “How big is 8 yards, really?”
 
@@ -185,7 +186,7 @@ To answer that, I experimented with AR to let users preview the skip size in the
 
 ---
 
-### 🔧 How It Works
+### How It Works
 
 - A dedicated **"View in AR"** button is shown **only on mobile devices**.
 - Once clicked:
@@ -195,7 +196,7 @@ To answer that, I experimented with AR to let users preview the skip size in the
 
 ---
 
-### 📦 Tech Stack & Tools Used
+### Tech Stack & Tools Used
 
 - `@google/model-viewer` (for Android AR support)
 - Apple Quick Look with `.usdz` format (for iOS support)
@@ -204,13 +205,13 @@ To answer that, I experimented with AR to let users preview the skip size in the
 
 ---
 
-### 🚧 Known Limitations
+### Known Limitations
 
 - Not all mobile devices support AR natively.
 - 3D models are not **dynamically scaled** based on skip dimensions. This approach was taken purely to enhance the user experience, not to guarantee exact measurements.
 - As this was developed during a limited time frame, models are simplified and not yet tied to real-time data though this is feasible in future iterations.
 
-## 🎨 Visual Identity Consideration
+## Visual Identity Consideration
 
 ### Color Palette
 
@@ -236,7 +237,7 @@ The following colors were extracted directly from the existing REM Waste website
 - Tooltip with real image preview + usage recommendations
 - Dynamic carousel of skip images (real + blueprint style)
 
-## 🧱 Project Structure & Stack
+## Project Structure & Stack
 
 ### Tech Stack
 
@@ -255,7 +256,7 @@ As the instruction mentioned — "Focus on clean, maintainable React code, respo
 - **Separation of Concerns**: Data mapping, utility functions, API calls, and presentation logic are kept cleanly separated.
 - **Responsive Design**: All components and layouts are designed to work across various screen sizes, from mobile to large desktops.
 
-### 🗂️ Folder Structure
+### Folder Structure
 
 ```
 src/
@@ -273,7 +274,7 @@ src/
 ├── utils/                // Utility/helper functions (e.g. isMobile, OS detection)
 ```
 
-## 🧪 How to Run
+## How to Run
 
 ```bash
 git clone https://github.com/yourname/remwaste-redesign.git
@@ -282,10 +283,10 @@ npm install
 npm run dev
 ```
 
-## 📎 Links
+## Links
 
-- **🔗 Live Deployment**  
+- ** Live Deployment**  
   [https://remwaste-react-694ydmdri-agriyantosks-projects.vercel.app/](https://remwaste-react-694ydmdri-agriyantosks-projects.vercel.app/)
 
-- **🧪 Sandbox Link** _(for testable preview)_  
+- ** Sandbox Link** _(for testable preview)_  
   _[To be added before submission]_
