@@ -5,7 +5,6 @@ import SkipInfoTable from "./SkipInfoTable";
 import { Badge, Carousel, Image } from "antd";
 import WarningTag from "../atoms/WarningTag";
 import DangerTag from "../atoms/DangerTag";
-import { skipImages } from "../../data";
 
 type Props = {
   unit: MeasurementUnit;
@@ -14,7 +13,6 @@ type Props = {
 
 const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
   if (!skip) return null;
-  // const imageUrl = `/4-yarder-skip.jpg`;
 
   return (
     <>
@@ -22,7 +20,7 @@ const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
         <div className="w-full lg:w-[55%] relative flex justify-center items-center">
           <div className="w-full h-full items-center justify-center">
             <Carousel dots arrows infinite={false} className="w-full h-full">
-              {skipImages.map((src, idx) => (
+              {skip.imgs.map((src, idx) => (
                 <div key={idx} className="w-full h-full">
                   <Image
                     src={src}
@@ -30,7 +28,7 @@ const SkipDisplay: React.FC<Props> = ({ skip, unit }) => {
                     style={{
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover",
+                      objectFit: "contain",
                     }}
                   />
                 </div>

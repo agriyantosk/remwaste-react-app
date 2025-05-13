@@ -1,10 +1,10 @@
-import { Modal } from "antd";
-import type { Skip } from "../../types";
+import { Image, Modal } from "antd";
+import type { EnrichedSkip } from "../../types";
 import PrimaryButton from "../atoms/PrimaryButton";
 import { useState } from "react";
 
 type Props = {
-  skip: Skip | null;
+  skip: EnrichedSkip | null;
 };
 
 const SelectedSkipFooter: React.FC<Props> = ({ skip }) => {
@@ -62,15 +62,29 @@ const SelectedSkipFooter: React.FC<Props> = ({ skip }) => {
         >
           <div className="flex gap-2 items-center">
             <div className="w-[50%]">
-              <img
-                src="/4-yarder-skip.jpg"
-                alt="Skip image"
-                className="w-full h-auto object-cover"
-              />
+              <Image.PreviewGroup
+                preview={{
+                  onChange: (current, prev) =>
+                    console.log(
+                      `current index: ${current}, prev index: ${prev}`
+                    ),
+                }}
+              >
+                {skip &&
+                  skip.imgs.map((img) => {
+                    return (
+                      <>
+                        <div className="text-center">
+                          <Image width={150} src={img} sizes="" />
+                        </div>
+                      </>
+                    );
+                  })}
+              </Image.PreviewGroup>
             </div>
             <div className="w-[50%]">
               {skip && (
-                <ul className="text-sm text-gray-700">
+                <ul className="text-xs xs:text-sm md:text-lg text-primary-dark">
                   <li>
                     <strong>Size:</strong> {skip.size} Yard
                   </li>

@@ -25,4 +25,5 @@ export type EnrichedSkip = Skip & {
   description: string;
   recommendations: string[];
   dimensions: (typeof skipDimensions)[number];
+  imgs: string[];
 };

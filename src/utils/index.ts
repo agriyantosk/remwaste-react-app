@@ -1,4 +1,9 @@
-import { skipDescriptions, skipDimensions, skipRecommendations } from "../data";
+import {
+  skipDescriptions,
+  skipDimensions,
+  skipImages,
+  skipRecommendations,
+} from "../data";
 import type { EnrichedSkip, Skip } from "../types";
 
 export const enrichSkip = (skip: Skip): EnrichedSkip => {
@@ -7,6 +12,7 @@ export const enrichSkip = (skip: Skip): EnrichedSkip => {
     description: skipDescriptions[skip.size] ?? "",
     recommendations: skipRecommendations[skip.size] ?? [],
     dimensions: skipDimensions[skip.size],
+    imgs: skipImages,
   };
 };
 
