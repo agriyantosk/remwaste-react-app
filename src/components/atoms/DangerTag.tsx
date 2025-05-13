@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tag } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import type { DangerTagKey } from "../../types";
@@ -9,11 +9,14 @@ type Props = {
 };
 
 const DangerTag: React.FC<Props> = ({ data }) => {
+  useEffect(() => {
+    console.log(data, "dangerData");
+  }, [data]);
   return (
     <>
       {Object.entries(dangerTagMap).map(([key, label]) => {
         const value = data[key as DangerTagKey];
-        if (value === undefined || value === false) return null;
+        if (value === undefined || value === true) return null;
 
         return (
           <Tag

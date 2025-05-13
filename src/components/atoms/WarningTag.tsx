@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tag } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { warningTagMap } from "../../mapping";
@@ -9,11 +9,14 @@ type Props = {
 };
 
 const WarningTag: React.FC<Props> = ({ data }) => {
+  useEffect(() => {
+    console.log(data, "warningData");
+  }, [data]);
   return (
     <>
       {Object.entries(warningTagMap).map(([key, label]) => {
         const value = data[key as WarningTagKey];
-        if (value === undefined || value === false) return null;
+        if (value === undefined || value === true) return null;
 
         return (
           <Tag
