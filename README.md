@@ -1,4 +1,4 @@
-# remwaste-react-app (REM Waste – Redesign Challenge)
+# remwaste-react-app (REM Waste – Redesign Challenge / Technical Test)
 
 Before diving into visual changes or code, I decided to take a step back and understand the context around the task. What is the nature of the waste management industry? Where does REM Waste sit within that landscape? Who are the real people using this skip selection interface, and what do they expect when landing on this page?
 
@@ -299,16 +299,14 @@ src/
 ## How to Run Locally
 
 ```bash
-git clone https://github.com/yourname/remwaste-redesign.git
-cd remwaste-redesign
+git clone https://github.com/agriyantosk/remwaste-react-app.git
+cd remwaste-react-app
 npm install
 npm run dev
 ```
 
 ## Links
 
-- ** Live Deployment**  
-  [https://remwaste-react-694ydmdri-agriyantosks-projects.vercel.app/](https://remwaste-react-694ydmdri-agriyantosks-projects.vercel.app/)
+- **Live Deployment**: [_Deployment Link_](https://remwaste-react-694ydmdri-agriyantosks-projects.vercel.app/)
 
-- ** Sandbox Link** _(for testable preview)_  
-  _[To be added before submission]_
+- **Sandbox Link**: [_Sandbox Link_](https://codesandbox.io/p/github/agriyantosk/remwaste-react-app/draft/condescending-noyce)
